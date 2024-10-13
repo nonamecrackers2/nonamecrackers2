@@ -4,13 +4,13 @@ Over the years I've been programming in Java, I've developed a style that, _for 
 
 ## Why?
 
-Having a cohesive coding style and format is important to me. The reason why I want one is it makes the code seem more professional and organized. When a bunch of different styles are being used, the code looks messy and disorganized. I simply request that when contributing code to my projects, that you try your best to maintain the style I've established. When you don't follow this style, I typically tell you to change your code so it matches, or I change it myself. And this process just takes time away from the both of us to make cool things. I'm not expecting perfection but I am expecting your honest effort when it comes to keeping the style and format consistent. You can think of this document as a sort of loose agreement between you (the contributor) and me, and perhaps more of a guideline.
+Having a cohesive coding style and format is important to me. The reason why I have one is to make my code more professional and organized. When a bunch of different styles are being used, the code looks messy and disorganized. I simply request that when contributing code to my projects, that you try your best to maintain the style I've established (even if you don't necessarily agree with it). When you don't follow this style, I typically tell you to change your code so it matches, or I change it myself. And this process just takes time away from the both of us to make cool things. I'm not expecting perfection but I am expecting your honest effort when it comes to keeping the style and format consistent. You can think of this document as a sort of loose agreement between you (the contributor) and me, and perhaps more of a guideline.
 
 ## Style
 
-### Curly Brackets in IF statements, WHILE/FOR loops, etc.
+### Curly Brackets For Blocks
 
-When writing an IF, WHILE, FOR, SWITCH, or any other sort of built-in statement, I expect the opening curly brace ``{`` to appear on the **next line**, AKA the line directly following the statement:
+When writing an IF, WHILE, FOR, SWITCH, or any code block, I expect the opening curly brace ``{`` to appear on the **next line**, AKA the line directly following the statement:
 
 ```java
 if (!nextValues.isEmpty())
@@ -29,9 +29,9 @@ if (!nextValues.isEmpty()) { // <--- please dont do this
 }
 ```
 
-This applies to following ELSE and ELSE IF statements attached to the IF. This format also applies to WHILE, FOR, SWITCH, etc. statements, including methods/functions and classes, interfaces, records, etc.
+This applies to following ELSE and ELSE IF statements attached to the IF in this example. This format also applies to WHILE, FOR, SWITCH, etc. statements, including methods/functions and classes, interfaces, records, or any other code block.
 
-In some cases, I remove the curly brackets entirely. This is only if the content inside of an IF, WHILE, or FOR loop contains only a single line.
+In some cases, I remove the curly brackets entirely. This is only if the content inside of a code block is a single line, and the brackets can be removed (and in other cases outlined below)
 
 ```java
 if (renderable instanceof Widget3D widget) //brackets removed
@@ -47,7 +47,7 @@ if (renderable instanceof Widget3D widget)
 }
 ```
 
-This does not apply to methods/functions, try-catch blocks, classes, interfaces, records, etc.
+This does not apply to methods/functions, try-catch blocks, classes, interfaces, records, and other objects.
 
 ### Accessing Fields and Methods
 
@@ -72,7 +72,7 @@ protected void addTranslations()
 }
 ```
 
-In this example, the method ``add`` includes the ``this.`` before it, indicating that it is an instance method.
+In this example, the method ``add`` includes the ``this.`` before it. This helps avoid possible ambiguity between parameters and wobject/static fields and method variables.
 
 ``this.`` is not included for static fields or methods (your IDE should complain at you for doing that anyways)
 
@@ -82,13 +82,13 @@ Fields and methods all follow the camel case convention. When naming something, 
 
 Classes, interfaces, records, etc. follow pascal case. This is typical Java convention and your IDE may complain at you if you don't capitalize the first letter.
 
-### Where to put new Classes, Interfaces, Records, Packages, etc.
+### Where to Put New Classes, Interfaces, Records, Packages, and Objects.
 
 Before creating a new class, interface, record, etc., please take a look through the code to see if there's an already existing package that would work for it. For example, if you're making a class that contains data for a registry, try to include it with other classes that contain the same kind of content. If you're working on one of my mods, a package named similiar to ``dev.nonamecrackers2.mod.common.init`` would be where you would put something called ``ModEntities``. Please try your best to find a suitable spot for something, if you can't find one that would work well then make a new package that would make sense.
 
 ### Local Fields
 
-When creating a new local field in a method, include the type, then the name of the local field and its optional assignment (if it's assigned at declaration). While using ``var`` instead of the type can be handy (I do it too if I'm lazy enough lol), try to include the type of the field if possible, unless if its super long because of generics (such as with ``Map<SomeSuperLongClassName, Pair<String, AnotherLongClassName>> map = ...``, which in this case can be replaced with ``var map = ...``, if possible).
+When creating a new local field in a method, include the type, then the name of the local field and its optional assignment (if it's assigned at declaration). While using ``var`` instead of the type can be handy (I do it too if I'm lazy enough), try to include the type of the field if possible, unless if its super long because of generics (such as with ``Map<SomeSuperLongClassName, Pair<String, AnotherLongClassName>> map = ...``, which in this case can be replaced with ``var map = ...``, if possible).
 
 ### Method Parameters
 
